@@ -1,6 +1,7 @@
 """Overlay windows for notifications and warnings"""
 import tkinter as tk
 import threading
+from ..utils.constants import COLOR_NOTIFICATION, COLOR_WARNING
 
 
 def show_start_notification(wait_minutes: int):
@@ -12,7 +13,7 @@ def show_start_notification(wait_minutes: int):
     notification.title("Gaming Break Timer Started")
     notification.withdraw()  # Hide until positioned
     notification.attributes('-topmost', True)
-    notification.configure(bg='#007b2d')
+    notification.configure(bg=COLOR_NOTIFICATION)
     
     # Calculate center position
     window_width = 400
@@ -67,7 +68,7 @@ def show_warning_overlay(warning_seconds: int = 30):
     warning.title("Gaming Break Warning")
     warning.withdraw()  # Hide until positioned
     warning.attributes('-topmost', True)
-    warning.configure(bg='#8f0000')
+    warning.configure(bg=COLOR_WARNING)
     
     # Calculate center position
     window_width = 400
@@ -98,7 +99,7 @@ def show_warning_overlay(warning_seconds: int = 30):
         warning,
         text="⚠️ GAMING BREAK ⚠️\n\nYour game will close in:",
         font=("Arial", 16, "bold"),
-        bg='#8f0000',
+        bg=COLOR_WARNING,
         fg='white',
         pady=10
     )
@@ -109,7 +110,7 @@ def show_warning_overlay(warning_seconds: int = 30):
         warning,
         text=str(warning_seconds),
         font=("Arial", 48, "bold"),
-        bg='#8f0000',
+        bg=COLOR_WARNING,
         fg='white'
     )
     countdown_label.pack()

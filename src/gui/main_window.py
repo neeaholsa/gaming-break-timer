@@ -4,6 +4,7 @@ from tkinter import messagebox
 from ..core.timer import GamingTimer
 from ..core.process_manager import close_process
 from ..utils.config import Config
+from ..utils.constants import COLOR_PRIMARY, COLOR_PRIMARY_HOVER
 from .overlays import show_start_notification_threaded, show_warning_overlay_threaded
 
 
@@ -25,6 +26,12 @@ class MainWindow(ctk.CTk):
         
         # Window setup
         self.title("Gaming Break Timer")
+        
+        # Set window icon
+        try:
+            self.iconbitmap("assets/icon.ico")
+        except Exception:
+            pass  # Icon file not found, use default
         
         # Center window on screen
         window_width = 500
@@ -68,7 +75,8 @@ class MainWindow(ctk.CTk):
             self.game_frame,
             values=game_names,
             command=self._on_game_changed,
-            width=250
+            width=250,
+            state="readonly"
         )
         self.game_dropdown.set(self.config.get_selected_game())
         self.game_dropdown.pack(side="left", padx=10)
@@ -133,7 +141,8 @@ class MainWindow(ctk.CTk):
             width=120,
             height=40,
             font=("Arial", 14, "bold"),
-            fg_color="#4b00ab"
+            fg_color=COLOR_PRIMARY,
+            hover_color=COLOR_PRIMARY_HOVER,
         )
         self.start_button.grid(row=0, column=0, padx=10)
         
@@ -144,7 +153,8 @@ class MainWindow(ctk.CTk):
             width=120,
             height=40,
             font=("Arial", 14, "bold"),
-            fg_color="#4b00ab",
+            fg_color=COLOR_PRIMARY,
+            hover_color=COLOR_PRIMARY_HOVER,
             state="disabled"
         )
         self.stop_button.grid(row=0, column=1, padx=10)
@@ -156,7 +166,8 @@ class MainWindow(ctk.CTk):
             width=120,
             height=40,
             font=("Arial", 14, "bold"),
-            fg_color="#4b00ab"
+            fg_color=COLOR_PRIMARY,
+            hover_color=COLOR_PRIMARY_HOVER,
         )
         self.settings_button.grid(row=0, column=2, padx=10)
     

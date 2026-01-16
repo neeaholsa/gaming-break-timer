@@ -2,6 +2,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 from ..utils.config import Config
+from ..utils.constants import COLOR_PRIMARY, COLOR_PRIMARY_HOVER
 
 
 class SettingsWindow(ctk.CTkToplevel):
@@ -94,7 +95,8 @@ class SettingsWindow(ctk.CTkToplevel):
             text="Add Game",
             command=self._add_game,
             width=100,
-            fg_color="#4b00ab"
+            fg_color=COLOR_PRIMARY,
+            hover_color=COLOR_PRIMARY_HOVER,
         ).pack(side="left", padx=5)
         
         ctk.CTkButton(
@@ -102,7 +104,8 @@ class SettingsWindow(ctk.CTkToplevel):
             text="Remove Selected",
             command=self._remove_game,
             width=120,
-            fg_color="#4b00ab"
+            fg_color=COLOR_PRIMARY,
+            hover_color=COLOR_PRIMARY_HOVER,
         ).pack(side="left", padx=5)
         
         # UI Settings
@@ -150,7 +153,7 @@ class SettingsWindow(ctk.CTkToplevel):
             text="Close",
             command=self.destroy,
             width=120,
-            fg_color="#4b00ab"
+            fg_color=COLOR_PRIMARY
         ).pack(pady=20)
     
     def _load_games(self):
