@@ -29,7 +29,7 @@ This is also a learning project where I'm practicing and testing coding with Git
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/gaming-break-timer.git
+   git clone https://github.com/neeaholsa/gaming-break-timer.git
    cd gaming-break-timer
    ```
 
